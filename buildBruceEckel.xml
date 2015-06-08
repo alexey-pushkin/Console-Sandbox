@@ -1,0 +1,17 @@
+
+           <project name="nodefault" default="all" >
+
+                 <target name="make.dirs" description="Make some dirs">
+                         <mkdir dir="build"/>
+                 </target>
+
+                 <target name="all" description="Do the build"  depends="make.dirs">
+                         <echo>I'm building my software</echo>
+                 </target>
+
+                 <target name="clean" description="Clean up">
+                         <echo>I'm cleaning up.</echo>
+                         <delete dir="build"/>
+                 </target>
+
+           </project>
