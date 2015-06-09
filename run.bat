@@ -1,29 +1,29 @@
-@rem // switch off logging output + @ to hide this comment
-rem @echo off
-
-cd C:\
-cd E:\Workspace\Console Sandbox
-
-
-Enter the drive letter followed by a colon
-C:> E:
-E:>
-
-To change drive and directory at the same time, use CD with the /D switch
-C:> cd /D E:\utils
-E:\utils\>
-
-Change to the ROOT directory:
-C:\Work\backup\January> CD \ 
+@rem // switch off logging output + @ to hide this comment // rem from remark // also can use :: // notepad++ ctrl+q for multiline or use goto labels
+@echo off
 
 rem // greeting
 echo Hi there!
+rem // echo blank line
+echo.
 
 rem // compile
 javac Class.java
 
 rem // execute
-java Class
+java Class test
 
 rem // stop before exit, don't show "Press any key to continue..."
-pause >null
+pause >nul
+
+
+
+REM Enter the drive letter followed by a colon
+REM C:> E:
+REM E:>
+
+REM To change drive and directory at the same time, use CD with the /D switch
+REM C:> cd /D E:\utils
+REM E:\utils\>
+
+REM Change to the ROOT directory:
+REM C:\Work\backup\January> CD \ 
