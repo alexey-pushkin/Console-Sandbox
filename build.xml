@@ -1,0 +1,5 @@
+<project name="AntExample" default="all">
+     <target name="all" description="Simple eaxample" >
+           <echo>I'm building my software</echo>
+     </target>
+</project>
