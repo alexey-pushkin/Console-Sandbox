@@ -1,5 +1,13 @@
-<project name="AntExample" default="all">
-     <target name="all" description="Simple eaxample" >
-           <echo>I'm building my software</echo>
+<project name="AntExample" default="all" >
+
+     <description>This is a project which uses dependancies</description>
+
+     <target name="make_dirs_target" description="Make a dir">
+            <mkdir dir="dir_name"/>
      </target>
+       
+     <target name="all" description="Do the build"  depends="make_dirs_target">
+            <echo>I'm building my software</echo>
+     </target>
+       
 </project>
