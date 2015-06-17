@@ -1,0 +1,49 @@
+<project name="AntExample"  default="all">
+
+        <property name="src.dir" value="src"/>
+        <property name="build.dir" value="build"/>
+        <property name="classes.dir" value="build/classes"/>
+		<property name="jars.dir" value="build/jars"/>
+       
+        <target name="make_dirs" description="Make some dirs">
+                <mkdir dir="${build.dir}"/>
+                <mkdir dir="${classes.dir}"/>
+				<mkdir dir="${jars.dir}"/>
+        </target>
+
+        <target name="compile" description="compile java" depends="make_dirs">
+                <javac destdir="${classes.dir}">
+                        <src path="${src.dir}"/>
+                </javac>
+        </target>
+
+        <target name="make_jar" description="make jar file" depends="compile">
+                <jar destfile="${jars.dir}/Class.jar">
+                        <fileset dir="${classes.dir}">
+                                <include name="**/*.class"/>
+                        </fileset>
+                </jar>
+        </target>
+		
+		<path id="my.path">
+				<pathelement location="build/classes"/>
+		</path>
+		
+		<target name="print.path" depends="make_jar">
+			<echo>${toString:my.path}</echo>
+		</target>
+		
+		<target name="run_class" description="run class file" depends="print.path">
+                <java classname="Class2">
+					<arg value="test"/>
+					<classpath>
+						<fileset dir="build/classes/cl2">
+							<include name="*.class"/>
+						</fileset>
+					</classpath>
+				</java>
+        </target>
+
+        <target name="all" description="Do the build" depends="run_class"/>
+       
+</project>
