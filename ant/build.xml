@@ -11,13 +11,13 @@
 				<mkdir dir="${jars.dir}"/>
         </target>
 
-        <target name="compile" description="compile java" depends="make_dirs">
+        <!--target name="compile" description="compile java" depends="make_dirs">
                 <javac destdir="${classes.dir}">
                         <src path="${src.dir}"/>
                 </javac>
-        </target>
+        </target-->
 
-        <target name="make_jar" description="make jar file" depends="compile">
+        <target name="make_jar" description="make jar file" depends="make_dirs">
                 <jar destfile="${jars.dir}/Class.jar">
                         <fileset dir="${classes.dir}">
                                 <include name="**/*.class"/>
@@ -26,7 +26,11 @@
         </target>
 		
 		<path id="my.path">
-				<pathelement location="build/classes"/>
+				<!-- pathelement location="build/classes/cl2"/ -->
+				<pathelement path="build"/>
+				<fileset dir="build/classes">
+					<include name="**/*.class"/>
+				</fileset>
 		</path>
 		
 		<target name="print.path" depends="make_jar">
@@ -37,10 +41,10 @@
                 <java classname="Class2">
 					<arg value="test"/>
 					<classpath>
-						<fileset dir="build/classes/cl2">
-							<include name="*.class"/>
-						</fileset>
-					</classpath>
+        <pathelement path="${my.path}"/>
+        <pathelement location="."/>
+    </classpath>
+					<!-- classpath refid="my.path"/-->
 				</java>
         </target>
 
