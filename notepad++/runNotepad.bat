@@ -2,12 +2,13 @@
 @echo off
 
 rem // greeting
+echo.
 echo Hi there!
 echo **********************
 rem // echo blank line
 echo.
 
-rem // use Run/Run.../Browse/yout .bat file + $(CURRENT_DIRECTORY) $(FILE_NAME) $(NAME_PART)
+rem // use Run/Run.../Browse/your .bat file + $(CURRENT_DIRECTORY) $(FILE_NAME) $(NAME_PART)
 rem // move to $(CURRENT_DIRECTORY) - directory of the current file
 cd /d %1
 
