@@ -5,7 +5,6 @@ public class Class {
 			for (int i = 0; i < args.length; i++) {
 				pr(args[i]);
 			}
-		 
 		}
 	}
 

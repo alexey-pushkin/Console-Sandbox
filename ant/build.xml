@@ -24,7 +24,7 @@
                         </fileset>
                 </jar>
         </target>
-		
+
 		<path id="my.path">
 				<!-- pathelement location="build/classes/cl2"/ -->
 				<pathelement path="build"/>
@@ -32,7 +32,7 @@
 					<include name="**/*.class"/>
 				</fileset>
 		</path>
-		
+
 		<target name="print.path" depends="make_jar">
 			<echo>${toString:my.path}</echo>
 		</target>
@@ -40,14 +40,9 @@
 		<target name="run_class" description="run class file" depends="print.path">
                 <java classname="Class2">
 					<arg value="test"/>
-					<classpath>
-        <pathelement path="${my.path}"/>
-        <pathelement location="."/>
-    </classpath>
-					<!-- classpath refid="my.path"/-->
+					<classpath refid="my.path">
 				</java>
         </target>
 
         <target name="all" description="Do the build" depends="run_class"/>
-       
 </project>
