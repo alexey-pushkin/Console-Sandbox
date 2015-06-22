@@ -19,18 +19,17 @@
 
         <target name="make_jar" description="make jar file" depends="make_dirs">
                 <jar destfile="${jars.dir}/Class.jar">
-                        <fileset dir="${classes.dir}">
-                                <include name="**/*.class"/>
-                        </fileset>
+					<fileset dir="${classes.dir}">
+							<include name="**/*.class"/>
+					</fileset>
                 </jar>
         </target>
 
 		<path id="my.path">
-				<!-- pathelement location="build/classes/cl2"/ -->
-				<pathelement path="build"/>
-				<fileset dir="build/classes">
-					<include name="**/*.class"/>
-				</fileset>
+				<pathelement location="build/classes/"/>
+				<dirset dir="build">
+					<include name="**"/>
+				</dirset>
 		</path>
 
 		<target name="print.path" depends="make_jar">
@@ -40,7 +39,7 @@
 		<target name="run_class" description="run class file" depends="print.path">
                 <java classname="Class2">
 					<arg value="test"/>
-					<classpath refid="my.path">
+					<classpath refid="my.path"/>
 				</java>
         </target>
 
