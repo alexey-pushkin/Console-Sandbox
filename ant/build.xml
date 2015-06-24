@@ -37,7 +37,7 @@
 		</target>
 		
 		<target name="run_class" description="run class file" depends="print.path">
-                <java classname="Class2">
+                <java classname="Class">
 					<arg value="test"/>
 					<classpath refid="my.path"/>
 				</java>
