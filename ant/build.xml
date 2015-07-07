@@ -11,13 +11,13 @@
 				<mkdir dir="${jars.dir}"/>
         </target>
 
-        <!--target name="compile" description="compile java" depends="make_dirs">
+        <target name="compile" description="compile java" depends="make_dirs">
                 <javac destdir="${classes.dir}">
                         <src path="${src.dir}"/>
                 </javac>
-        </target-->
+        </target>
 
-        <target name="make_jar" description="make jar file" depends="make_dirs">
+        <target name="make_jar" description="make jar file" depends="compile">
                 <jar destfile="${jars.dir}/Class.jar">
 					<fileset dir="${classes.dir}">
 							<include name="**/*.class"/>
